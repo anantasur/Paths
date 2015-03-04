@@ -16,7 +16,7 @@ class Paths{
 		}
 		String source = args[2];
 		String destination = args[3];
-		
+
 		if(!fileName.exists()){
 			System.out.println("No database named "+fileName+" found");
 			return;
@@ -24,8 +24,7 @@ class Paths{
 			PathReader pr = new PathReader();
 			map = pr.readPath(fileName);
 		}
-
-
+		path.insertPath(map);
 		if(!path.isPresent(source)){
 			System.out.println("No city named '"+source+"' in database");
 			return;
