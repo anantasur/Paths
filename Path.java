@@ -16,7 +16,6 @@ public class Path {
 			List<String> singapore = new ArrayList<String>();
 			singapore.add("Seoul");
 			singapore.add("Dubai");
-			singapore.add("Bangalore");
 
 			List<String> seoul = new ArrayList<String>();
 			seoul.add("Singapore");
