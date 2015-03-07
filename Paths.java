@@ -10,20 +10,16 @@ class Paths{
 		String option = args[0];
 		File fileName = new File(args[1]);
 		Path path = new Path();
-		if(!option.equals("-f")){
-			System.out.println("Wrong option entered");
-			return;
-		}
-		String source = args[2];
-		String destination = args[3];
-
 		if(!fileName.exists()){
 			System.out.println("No database named "+fileName+" found");
 			return;
-		}else{
-			PathReader pr = new PathReader();
-			map = pr.readPath(fileName);
 		}
+		PathReader pr = new PathReader();
+		map = pr.readPath(fileName);
+
+		String source = args[2];
+		String destination = args[3];
+		
 		path.insertPath(map);
 		if(!path.isPresent(source)){
 			System.out.println("No city named '"+source+"' in database");
