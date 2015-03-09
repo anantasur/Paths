@@ -25,14 +25,10 @@ class Paths{
         citiesAndCountry = cr.readCity(fileName);
         System.out.println("======"+citiesAndCountry);
 
-        for (String entry : citiesAndCountry.keySet()){
-            City e = new City(entry, citiesAndCountry.get(entry));
-            entry.toString();
-        }
-
         String source = args[2];
         String destination = args[3];
 
+        path.insertMap(citiesAndCountry);
         path.insertPath(routes);
         if(!path.isPresent(source)){
             System.out.println("No city named '"+source+"' in database");

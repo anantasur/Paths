@@ -44,6 +44,10 @@ public class Path {
         this.routes = routes;
     }
 
+    public void insertMap(Map<String, String> citiesAndCountry) {
+        this.cityCountryMap = citiesAndCountry;
+    }
+
     public boolean isPresent(String city){
         Set<String> sourceStations = routes.keySet();
         if(sourceStations.contains(city))
