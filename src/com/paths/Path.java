@@ -3,17 +3,11 @@ package com.paths;
 /**
  * Created by ananthur on 3/9/2015.
  */
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Queue;
-import java.util.LinkedList;
-import java.io.IOException;
+import java.util.*;
 
 public class Path {
     static Map<String, List<String>> routes = new HashMap<String, List<String>>();
+    Map<String,String> cityCountryMap = new HashMap<String, String>();
     Queue path = new LinkedList();
     static{
         List<String> bangalore = new ArrayList<String>();

@@ -19,10 +19,11 @@ class Paths{
         }
         PathReader pr = new PathReader();
         routes = pr.readPath(fileName);
+        System.out.println("routes from file  :" +routes);
 
         CitiesReader cr = new CitiesReader();
         citiesAndCountry = cr.readCity(fileName);
-//        System.out.println("======"+citiesAndCountry);
+        System.out.println("======"+citiesAndCountry);
 
         for (String entry : citiesAndCountry.keySet()){
             City e = new City(entry, citiesAndCountry.get(entry));
