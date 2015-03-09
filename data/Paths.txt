@@ -1,5 +1,5 @@
 Beijing,Seoul
-Beijing, Tokyo 
+Beijing, Tokyo
 Singapore,Seoul
 Singapore, Bangalore
 Singapore, Dubai
