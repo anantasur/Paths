@@ -86,15 +86,15 @@ public class Path {
     }
 
     public String printPath(String source, String destination){
-        // System.out.println(routes);
-        boolean hasPath = hasPath(source,destination);
+        boolean hasPath = hasPath(source, destination);
         int size = path.size();
         String fullRoute = "";
         for(int i = 0; i < size; i++){
+            String place = (String) path.poll();
             if(i>0)
-                fullRoute += "->"+path.poll();
+                fullRoute += "->"+place+"["+cityCountryMap.get(place)+"]";
             else
-                fullRoute += ""+path.poll();
+                fullRoute += ""+place+"["+cityCountryMap.get(place)+"]";
         }
         return fullRoute;
     }
