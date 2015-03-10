@@ -10,6 +10,8 @@ import java.util.Map;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertFalse;
+//import static org.junit.Assert.assertTrue;
 
 public class PathTest {
     Map<String, List<String>> routes = new HashMap<String, List<String>>();
@@ -29,7 +31,7 @@ public class PathTest {
     }
 
     @Test
-    public void isCityPresent_checks_whether_city_is_prsent () throws IOException {
+    public void isPresent_checks_whether_city_is_prsent () throws IOException {
         set_up();
         assertFalse(path.isPresent("Chennai"));
         assertTrue(path.isPresent("Dubai"));
