@@ -1,12 +1,11 @@
 package com.paths;
-import java.util.Map;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-import java.io.IOException;
-import java.io.File;
+import java.util.Map;
 
 class Paths{
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         Map<String, List<String>> routes = new HashMap<String, List<String>>();
         Map<String, String> citiesAndCountry = new HashMap<String, String>();
 

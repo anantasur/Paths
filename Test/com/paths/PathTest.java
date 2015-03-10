@@ -2,18 +2,35 @@ package com.paths;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by ananthur on 3/9/2015.
- */
 public class PathTest {
+    Map<String, List<String>> routes = new HashMap<String, List<String>>();
+    Map<String, String> citiesAndCountry = new HashMap<String, String>();
+    Path path = new Path();
+
+    public void set_up() throws IOException {
+        File f = new File("./data/Paths.txt");
+        PathReader pr = new PathReader();
+        routes = pr.readPath(f);
+
+        File c = new File("./data/cities.txt");
+        CitiesReader cr = new CitiesReader();
+        citiesAndCountry = cr.readCity(c);
+        path.insertMap(citiesAndCountry);
+        path.insertPath(routes);
+    }
 
     @Test
-    public void isCityPresent_checks_whether_city_is_prsent (){
-        Path path = new Path();
+    public void isCityPresent_checks_whether_city_is_prsent () throws IOException {
+        set_up();
         assertFalse(path.isPresent("Chennai"));
         assertTrue(path.isPresent("Dubai"));
         assertTrue(path.isPresent("Tokyo"));
@@ -21,57 +38,4 @@ public class PathTest {
         assertTrue(path.isPresent("Beijing"));
     }
 
-    @Test
-    public void hasPath_returns_true_if_there_is_direct_flight_between_Bangalore_and_Singapore (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Bangalore", "Singapore"));
-        assertTrue(path.hasPath("Singapore", "Bangalore"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_direct_flight_between_Seoul_and_Beijing (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Seoul", "Beijing"));
-        assertTrue(path.hasPath("Beijing", "Seoul"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_direct_flight_between_Beijing_and_Tokyo (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Beijing", "Tokyo"));
-        assertTrue(path.hasPath("Tokyo", "Beijing"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_direct_flight_between_Singapore_and_Dubai (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Singapore", "Dubai"));
-        assertTrue(path.hasPath("Dubai", "Singapore"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_direct_flight_between_Singapore_and_Seoul (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Singapore", "Seoul"));
-        assertTrue(path.hasPath("Seoul", "Singapore"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_flight_between_Bangalore_and_Tokyo (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Bangalore", "Tokyo"));
-    }
-
-    @Test
-    public void hasPath_returns_true_if_there_is_flight_between_Tokyo_and_Bangalore (){
-        Path path = new Path();
-        assertTrue(path.hasPath("Tokyo", "Bangalore"));
-    }
-
-    @Test
-    public void givePath_gives_full_path_between_two_places (){
-        Path path = new Path();
-        assertEquals("Bangalore->Singapore", path.printPath("Bangalore", "Singapore"));
-        assertEquals("Bangalore->Singapore->Seoul->Beijing->Tokyo", path.printPath("Bangalore", "Tokyo"));
-    }
 }
