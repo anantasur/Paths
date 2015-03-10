@@ -6,10 +6,10 @@ package com.paths;
 import java.util.*;
 
 public class Path {
-    static Map<String, List<String>> routes = new HashMap<String, List<String>>();
+     Map<String, List<String>> routes = new HashMap<String, List<String>>();
     Map<String,String> cityCountryMap = new HashMap<String, String>();
     Queue path = new LinkedList();
-    static{
+    {
         List<String> bangalore = new ArrayList<String>();
         bangalore.add("Singapore");
 

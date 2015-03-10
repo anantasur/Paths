@@ -12,6 +12,7 @@ class Paths{
 
         String option = args[0];
         File fileName = new File(args[1]);
+        File citiesFile = new File(args[3]);
         Path path = new Path();
         if(!fileName.exists()){
         System.out.println("No database named "+fileName+" found");
@@ -21,10 +22,10 @@ class Paths{
         routes = pr.readPath(fileName);
 
         CitiesReader cr = new CitiesReader();
-        citiesAndCountry = cr.readCity(fileName);
+        citiesAndCountry = cr.readCity(citiesFile);
 
-        String source = args[2];
-        String destination = args[3];
+        String source = args[4];
+        String destination = args[5];
 
         path.insertMap(citiesAndCountry);
         path.insertPath(routes);
